@@ -1,5 +1,5 @@
 "use client";
-import React from 'react'
+import React, { memo } from 'react'
 import { observer } from 'mobx-react';
 import { StoreContext } from "@/store";
 import { MdColorLens, MdOutlineExpandLess,MdOutlineExpandMore } from 'react-icons/md';
@@ -147,4 +147,5 @@ export const Stroke =  observer(() => {
     </>
   )
 });
+
 

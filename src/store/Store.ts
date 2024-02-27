@@ -6,7 +6,7 @@ import { MenuOption, EditorElement, Animation, TimeFrame, VideoEditorElement, Au
 import { FabricUitls } from '@/utils/fabric-utils';
 import { FFmpeg } from '@ffmpeg/ffmpeg';
 import { toBlobURL } from '@ffmpeg/util';
-import { Gradient, IShadowOptions, Pattern, Shadow,Textbox } from 'fabric/fabric-impl';
+import { CoverImage, Gradient, IShadowOptions, Image, Pattern, Shadow,Textbox } from 'fabric/fabric-impl';
 
 
 export class Store {
@@ -1478,7 +1478,11 @@ shadow:newShadow};
           flipY:false,
           opacity:1.0,
           stroke:undefined,
-          
+          strokeWidth:1,
+          strokeUniform:undefined,
+          strokeLineCap:"butt",
+          shadow:new fabric.Shadow({color:"blue",blur:0.6,offsetX:2,offsetY:2}),
+
 
         },
         timeFrame: {
@@ -1508,16 +1512,7 @@ shadow:newShadow};
         id,
         name: `Media(audio) ${index + 1}`,
         type: "audio",
-        placement: {
-          x: 0,
-          y: 0,
-          width: 100,
-          height: 100,
-          rotation: 0,
-          scaleX: 1,
-          scaleY: 1,
-          textAlign:"center"
-        },
+        placement: {},
         timeFrame: {
           start: 0,
           end: audioDurationMs,
@@ -1846,8 +1841,11 @@ shadow:newShadow};
             selectable: true,
             lockUniScaling: true,
             opacity:element.placement.opacity,
-            
-            
+            stroke:element.placement.stroke,
+            strokeWidth:element.placement.strokeWidth,
+            strokeUniform:element.placement.strokeUniform,
+            strokeLineCap:element.placement.strokeLineCap,
+            shadow:element.placement.shadow,
             // filters
             // @ts-ignore
             customFilter: element.properties.effect.type,
@@ -1876,7 +1874,7 @@ shadow:newShadow};
           canvas.add(imageObject);
           canvas.on("object:modified", function (e) {
             if (!e.target) return;
-            const target = e.target;
+            const target = e.target as CoverImage;
             if (target != imageObject) return;
             const placement = element.placement;
             let fianlScale = 1;
@@ -1893,9 +1891,11 @@ shadow:newShadow};
               scaleX: fianlScale,
               scaleY: fianlScale,
               opacity:target.opacity ?? placement.opacity,
-              
-
-          
+              stroke:target.stroke ?? placement.stroke,
+              strokeWidth:target.strokeWidth ?? placement.strokeWidth,
+              strokeUniform:target.strokeUniform ?? placement.strokeUniform,
+              strokeLineCap:target.strokeLineCap ?? placement.strokeLineCap,
+              shadow:target.shadow ?? placement.shadow,
             };
             const newElement = {
               ...element,
@@ -2002,11 +2002,7 @@ shadow:newShadow};
               },
            
             };
-            // const properties = element.properties;
-            // const newProperties :Properties={
-            //   ...properties,
-            //   text:target?
-            // }
+   
             store.updateEditorElement(newElement);
         
 

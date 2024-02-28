@@ -128,12 +128,12 @@ const MENU_OPTIONS = [
   //   action: (store: Store) => {
   //     store.setSelectedMenuOption("Fill");
   //   },
+  //  },
+  // {
+  //   name: "Export",
+  //   icon: MdDownload,
+  //   action: (store: Store) => {
+  //     store.setSelectedMenuOption("Export");
+  //   },
   // },
-  {
-    name: "Export",
-    icon: MdDownload,
-    action: (store: Store) => {
-      store.setSelectedMenuOption("Export");
-    },
-  },
 ];

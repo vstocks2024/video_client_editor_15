@@ -4,7 +4,7 @@ import { StoreContext } from "@/store";
 import { observer } from "mobx-react";
 import { MdAdd } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
-import {IoIosPricetag} from 'react-icons/io'
+
 
 type ImageResourceProps = {
   fileid:string;

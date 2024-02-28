@@ -115,25 +115,25 @@ const MENU_OPTIONS = [
       store.setSelectedMenuOption("Animation");
     },
   },
-  /*{
-    name: "Effects",
-    icon: MdMovieFilter,
-    action: (store: Store) => {
-      store.setSelectedMenuOption("Effect");
-    },
-  },
-  {
-    name: "Fill",
-    icon: MdOutlineFormatColorFill,
-    action: (store: Store) => {
-      store.setSelectedMenuOption("Fill");
-    },
-  },
+  // {
+  //   name: "Effects",
+  //   icon: MdMovieFilter,
+  //   action: (store: Store) => {
+  //     store.setSelectedMenuOption("Effect");
+  //   },
+  // },
+  // {
+  //   name: "Fill",
+  //   icon: MdOutlineFormatColorFill,
+  //   action: (store: Store) => {
+  //     store.setSelectedMenuOption("Fill");
+  //   },
+  // },
   {
     name: "Export",
     icon: MdDownload,
     action: (store: Store) => {
       store.setSelectedMenuOption("Export");
     },
-  },*/
+  },
 ];

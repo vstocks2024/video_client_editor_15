@@ -1482,6 +1482,7 @@ shadow:newShadow};
           strokeUniform:undefined,
           strokeLineCap:"butt",
           shadow:new fabric.Shadow({color:"blue",blur:0.6,offsetX:2,offsetY:2}),
+          crossOrigin:"anonymous",
 
 
         },
@@ -1660,9 +1661,10 @@ shadow:newShadow};
     try{
     console.log('modified')
     let mp4 = this.selectedVideoFormat === 'mp4'
-    const canvas = document.getElementById("canvas") as HTMLCanvasElement;
+    const canvas = document.getElementById("lower-canvas") as HTMLCanvasElement;
+    canvas
     //canvas.crossOrigin="anonymous";
-    const stream = canvas.captureStream(30);
+    const stream = (canvas as HTMLCanvasElement).captureStream(30);
     const audioElements = this.editorElements.filter(isEditorAudioElement)
     const audioStreams: MediaStream[] = [];
     audioElements.forEach((audio) => {
@@ -1687,6 +1689,7 @@ shadow:newShadow};
       const mediaRecorder = new MediaRecorder(stream);
       const chunks: Blob[] = [];
       mediaRecorder.ondataavailable = function (e) {
+        console.log(e.data);
         chunks.push(e.data);
         console.log("data available");
       };
@@ -1830,7 +1833,7 @@ shadow:newShadow};
           // if (element.properties.effect?.type === "blackAndWhite") {
           //   filters.push(new fabric.Image.filters.Grayscale());
           // }
-          const imageObject = new fabric.CoverImage(imageElement, {
+          const imageObject:Image = new fabric.CoverImage(imageElement, {
             name: element.id,
             left: element.placement.x,
             top: element.placement.y,
@@ -1846,6 +1849,7 @@ shadow:newShadow};
             strokeUniform:element.placement.strokeUniform,
             strokeLineCap:element.placement.strokeLineCap,
             shadow:element.placement.shadow,
+            crossOrigin:"anonymous",
             // filters
             // @ts-ignore
             customFilter: element.properties.effect.type,
@@ -1874,7 +1878,7 @@ shadow:newShadow};
           canvas.add(imageObject);
           canvas.on("object:modified", function (e) {
             if (!e.target) return;
-            const target = e.target as CoverImage;
+            const target = e.target as Image;
             if (target != imageObject) return;
             const placement = element.placement;
             let fianlScale = 1;
@@ -1896,6 +1900,10 @@ shadow:newShadow};
               strokeUniform:target.strokeUniform ?? placement.strokeUniform,
               strokeLineCap:target.strokeLineCap ?? placement.strokeLineCap,
               shadow:target.shadow ?? placement.shadow,
+              crossOrigin:"anonymous",
+              
+              
+              
             };
             const newElement = {
               ...element,

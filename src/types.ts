@@ -68,9 +68,10 @@ export type Placement = {
   strokeLineCap?: string | undefined;
   strokeLineJoin?: string | undefined;
   strokeMiterLimit?: number | undefined;
-
-
   shadow?: Shadow | string | undefined;
+
+
+  crossOrigin?: string | undefined;
 
 };
 export type TimeFrame = {

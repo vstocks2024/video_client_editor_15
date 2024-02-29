@@ -43,7 +43,7 @@ await axios.get("https://d2x8kz5mzitaig.cloudfront.net/list_audios")
     console.log(file.name);
     const formData=new FormData();
     formData.append("newaudio",file)
-    await axios.post("https://d2x8kz5mzitaig.cloudfront.net/new_audio", formData, { headers: {'Content-Type': 'multipart/form-data'}})
+    await axios.post(`https://d18keabtttnxz.cloudfront.net/new_audio`, formData, { headers: {'Content-Type': 'multipart/form-data'}})
     .then((resolve)=>
     {
       console.log(resolve);

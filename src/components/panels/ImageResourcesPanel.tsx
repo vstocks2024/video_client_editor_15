@@ -13,7 +13,7 @@ export const ImageResourcesPanel = observer(() => {
 {
   try{
 store.setImages([]);
-await axios.get("https://d2x8kz5mzitaig.cloudfront.net/list_images")
+await axios.get(`https://d18keabtttnxz.cloudfront.net/list_images`)
 .then(async (resolve)=>{
   if(resolve.data.data?.length>0)
   {
@@ -67,7 +67,7 @@ await axios.get("https://d2x8kz5mzitaig.cloudfront.net/list_images")
     if (!file) return;
     const formData=new FormData();
     formData.append("newimage", file)
-    await axios.post("https://d2x8kz5mzitaig.cloudfront.net/new_image", formData, { headers: {'Content-Type': 'multipart/form-data'}}).then((resolve)=>
+    await axios.post(`https://d18keabtttnxz.cloudfront.net/new_image`, formData, { headers: {'Content-Type': 'multipart/form-data'}}).then((resolve)=>
     {
       console.log(resolve);
       init1();

@@ -29,8 +29,7 @@ export const AssetsResource = observer(
           </button>
           <button className="hover:bg-[#00a0f5] bg-[rgba(0,0,0,.25)] rounded z-10 text-white font-bold py-1 absolute text-lg top-2 right-2"
           onClick={() => {}}><MdDelete size={20}/></button>
-        <button className="hover:bg-[#00a0f5] bg-[rgba(0,0,0,.25)] rounded z-10 text-white font-bold py-1 absolute text-lg bottom-2 right-2"
-          onClick={() => {store.addVideo(filename,index) }}>
+        <button className="hover:bg-[#00a0f5] bg-[rgba(0,0,0,.25)] rounded z-10 text-white font-bold py-1 absolute text-lg bottom-2 right-2">
           <MdAdd size={20} />
         </button>
         <video

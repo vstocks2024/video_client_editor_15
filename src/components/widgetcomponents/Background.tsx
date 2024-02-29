@@ -14,7 +14,7 @@ export const Background = observer(() => {
       if(!store.canvas) return ;
       const bgcolor=document.querySelector('#bgcolor');
       if(!bgcolor) return ;
-      if(!bgcolor.checked) return;
+      //if(!bgcolor.checked) return;
       store.setBackgroundColor(event.target.value);
     }
     return (

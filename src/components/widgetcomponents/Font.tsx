@@ -15,16 +15,16 @@ export const Font = observer(() => {
     const [results,setResults]=React.useState([]);
     const [family,setFamily]=React.useState<string>("");
     const reffamily=React.useRef<HTMLSelectElement>(null);
+    const reftextcolorfill=React.useRef<HTMLInputElement>(null);
     
 
 
     const handleTextBoxFill=(event:React.ChangeEvent<HTMLInputElement>)=>{
       try{
         if(!store.selectedElement) return;
-        const textcolorfill=document.querySelector('#textcolorfill');
-        if(!textcolorfill) return;
+        if(!reftextcolorfill.current) return;
         if(!event.target.checked) return;
-        store.setTextBoxFill(store.selectedElement,textcolorfill.value);
+        store.setTextBoxFill(store.selectedElement,reftextcolorfill.current.value);
       }
       catch(err){
         console.log(err);
@@ -143,7 +143,7 @@ export const Font = observer(() => {
         <div className='flex flex-row items-center'>
         <input type='checkbox' onChange={handleTextBoxFill}     className='bg-transparent w-[16px] h-[16px] border text-xs '/>
         <div className='flex text-xs  box-border flex-row my-2 h-[28px]'>
-          <input type='color' id="textcolorfill"   className='bg-transparent border-none mx-2 mt-[2.5px] align-middle w-[24px] h-[24px] ' />
+          <input type='color' ref={reftextcolorfill}   className='bg-transparent border-none mx-2 mt-[2.5px] align-middle w-[24px] h-[24px] ' />
           <label  htmlFor='Background Color' className='pt-[6.4px] items-center align-middle'>Text Color</label>
           <span className='grow shrink basis-0 w-[90px]  self-stretch '></span>
           </div>

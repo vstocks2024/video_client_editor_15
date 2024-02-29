@@ -23,7 +23,7 @@ export const MainPart=observer(()=> {
             const template_id=localStorage.getItem("template_id");
             if(!store.selectedElement) return 
             const element_id=store.selectedElement?.id
-            await axios.delete(`http://localhost:8000/delete_element/${template_id}/${element_id}`)
+            await axios.delete(`https://d2x8kz5mzitaig.cloudfront.net/delete_element/${template_id}/${element_id}`)
             .then((resolve)=>{
                 console.log(resolve);
             })
@@ -41,7 +41,7 @@ export const MainPart=observer(()=> {
     const handleGetTemplateById=async()=>
     {
         try{
-            await axios.get(`http://localhost:8000/get_template_by_id/4bf10c35-f684-4372-9789-f3b111924261`)
+            await axios.get(`https://d2x8kz5mzitaig.cloudfront.net/get_template_by_id/4bf10c35-f684-4372-9789-f3b111924261`)
             .then(async (resolve)=>{
                 store.setVideos([]);
                 store.removeAllEditorElements();
@@ -109,7 +109,7 @@ export const MainPart=observer(()=> {
     {
         try{
             console.log(store.editorElements);
-        await axios.post('http://localhost:8000/create_template',store.editorElements)
+        await axios.post('https://d2x8kz5mzitaig.cloudfront.net/create_template',store.editorElements)
         .then(async (resolve)=>
         {
             console.log(resolve);
@@ -159,7 +159,7 @@ export const MainPart=observer(()=> {
             },
             "background":store.canvas?.backgroundColor
            } 
-           await axios.post("http://localhost:8000/create_template",newCanvasObj)
+           await axios.post("https://d2x8kz5mzitaig.cloudfront.net/create_template",newCanvasObj)
            .then((resolve)=>
            {
             console.log(resolve);

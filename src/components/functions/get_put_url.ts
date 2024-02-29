@@ -2,10 +2,10 @@
 const { S3Client,GetObjectCommand,PutObjectCommand} =require("@aws-sdk/client-s3");
 const { getSignedUrl }=require("@aws-sdk/s3-request-presigner");
 
-const bucketName = process.env.NEXT_PUBLIC_VSTOCKS_BUCKET_NAME;
-const region = process.env.NEXT_PUBLIC_VSTOCKS_REGION;
-const accessKeyId = process.env.NEXT_PUBLIC_VSTOCKS_ACCESS_KEY;
-const secretAccessKey = process.env.NEXT_PUBLIC_VSTOCKS_SECRET_KEY;
+const bucketName = process.env.NEXT_PUBLIC_VSTOCKS_BUCKET_NAME as string;
+const region = process.env.NEXT_PUBLIC_VSTOCKS_REGION as string;
+const accessKeyId = process.env.NEXT_PUBLIC_VSTOCKS_ACCESS_KEY as string;
+const secretAccessKey = process.env.NEXT_PUBLIC_VSTOCKS_SECRET_KEY as string;
 
 
 const s3Client=new S3Client({

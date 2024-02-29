@@ -1435,9 +1435,9 @@ shadow:newShadow};
           rotation: 0,
           scaleX: 1,
           scaleY: 1,
-          flipX:false,
-          flipY:false,
-          opacity:1.0,
+          flipX: false,
+          flipY: false,
+          opacity: 1.0,
         },
         timeFrame: {
           start: 0,
@@ -1450,6 +1450,7 @@ shadow:newShadow};
             type: "none",
           }
         },
+        fabricObject: new fabric.Object
       },
     );
   }
@@ -1474,17 +1475,15 @@ shadow:newShadow};
           rotation: 0,
           scaleX: 1,
           scaleY: 1,
-          flipX:false,
-          flipY:false,
-          opacity:1.0,
-          stroke:undefined,
-          strokeWidth:1,
-          strokeUniform:undefined,
-          strokeLineCap:"butt",
-          shadow:new fabric.Shadow({color:"blue",blur:0.6,offsetX:2,offsetY:2}),
-          crossOrigin:"anonymous",
-
-
+          flipX: false,
+          flipY: false,
+          opacity: 1.0,
+          stroke: undefined,
+          strokeWidth: 1,
+          strokeUniform: undefined,
+          strokeLineCap: "butt",
+          shadow: new fabric.Shadow({ color: "blue", blur: 0.6, offsetX: 2, offsetY: 2 }),
+          crossOrigin: "anonymous",
         },
         timeFrame: {
           start: 0,
@@ -1497,6 +1496,7 @@ shadow:newShadow};
             type: "none",
           }
         },
+        fabricObject: new fabric.Object
       },
     );
   }
@@ -1513,7 +1513,18 @@ shadow:newShadow};
         id,
         name: `Media(audio) ${index + 1}`,
         type: "audio",
-        placement: {},
+        placement: {
+          x: 0,
+          y: 0,
+          width: 0,
+          height: 0,
+          rotation: 0,
+          scaleX: 0,
+          scaleY: 0,
+          flipX: false,
+          flipY: false,
+          opacity: 0
+        },
         timeFrame: {
           start: 0,
           end: audioDurationMs,
@@ -1521,7 +1532,8 @@ shadow:newShadow};
         properties: {
           elementId: `audio-${id}`,
           src: audioElement.src,
-        }
+        },
+        fabricObject: new fabric.Object
       },
     );
 
@@ -1546,30 +1558,29 @@ shadow:newShadow};
           rotation: 0,
           scaleX: 1,
           scaleY: 1,
-          flipX:false,
-          flipY:false,
-          textAlign:"center",
-          opacity:1.0,
-          underline:false,
-          overline:false,
-          linethrough:false,
-          lineHeight:1.6,
-          fill:"#FFFFFF",
-          backgroundColor:undefined,
-          selectable:true,
+          flipX: false,
+          flipY: false,
+          textAlign: "center",
+          opacity: 1.0,
+          underline: false,
+          overline: false,
+          linethrough: false,
+          lineHeight: 1.6,
+          fill: "#FFFFFF",
+          backgroundColor: undefined,
+          selectable: true,
           visible: true,
           hasControls: true,
           hasBorders: true,
           hasRotatingPoint: true,
           lockMovementX: false,
-          stroke:undefined,
-          strokeWidth:1,
-          strokeUniform:undefined,
-          strokeLineCap:"butt",
-          strokeLineJoin:"milter",
-          strokeMiterLimit:1,
-          shadow:new fabric.Shadow({color:"blue",blur:0.6,offsetX:2,offsetY:2}),
-        
+          stroke: undefined,
+          strokeWidth: 1,
+          strokeUniform: undefined,
+          strokeLineCap: "butt",
+          strokeLineJoin: "milter",
+          strokeMiterLimit: 1,
+          shadow: new fabric.Shadow({ color: "blue", blur: 0.6, offsetX: 2, offsetY: 2 }),
         },
         timeFrame: {
           start: 0,
@@ -1579,8 +1590,9 @@ shadow:newShadow};
           text: options.text,
           fontSize: options.fontSize,
           fontWeight: options.fontWeight,
-          splittedTexts: [],
+          splittedTexts: []
         },
+        fabricObject: new fabric.Object
       },
     );
   }
@@ -1958,7 +1970,7 @@ shadow:newShadow};
             shadow:element.placement.shadow,
           });
           element.fabricObject = textObject;
-          element.properties.textboxObject=textObject;
+          
           canvas.add(textObject);
           canvas.on("object:modified", function (e) {
             if (!e.target) return;

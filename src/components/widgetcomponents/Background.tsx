@@ -9,12 +9,12 @@ export const Background = observer(() => {
     const [expand,setExpand]=React.useState<boolean>(true);
     const [disable,setDisable]=React.useState<boolean>(false);
     const store = React.useContext(StoreContext);
+    const refBgColor=React.useRef<HTMLInputElement>(null);
     const handleCanvasBackgroundColor=(event: React.ChangeEvent<HTMLInputElement>)=>
     {
       if(!store.canvas) return ;
-      const bgcolor=document.querySelector('#bgcolor');
-      if(!bgcolor) return ;
-      //if(!bgcolor.checked) return;
+      if(!refBgColor.current) return ;
+      if(!refBgColor.current.checked) return;
       store.setBackgroundColor(event.target.value);
     }
     return (
@@ -25,7 +25,7 @@ export const Background = observer(() => {
       </section>
    {expand ? <section className={`cursor-pointer px-3 py-2 border-gray-900 bg-[#202020] ${expand ? "border-b-2":"border-none"}`}>
       <form noValidate className='flex flex-row items-center'>
-        <input  type='checkbox' id='bgcolor'  className='bg-transparent accent-black size-4 border text-xs'/>
+        <input  type='checkbox' ref={refBgColor}  className='bg-transparent accent-black size-4 border text-xs'/>
         <div className='flex text-xs  box-border flex-row my-2 h-[28px]'>
           <input type='color' disabled={disable} onChange={handleCanvasBackgroundColor} className='bg-transparent border-none mx-2 mt-[2.5px] align-middle w-[24px] h-[24px] ' />
           <label  htmlFor='Background Color' className='pt-[6.4px] items-center align-middle'>Background Color</label>

@@ -7,14 +7,14 @@ import { MdOutlineExpandLess,MdOutlineExpandMore,MdColorLens } from 'react-icons
 export const ObjectBackground = observer(() => {
     const [expand,setExpand]=React.useState<boolean>(true);
     const store = React.useContext(StoreContext);
+    const reftextboxbgcolor=React.useRef<HTMLInputElement>(null);
     
     const handleCheckBox=(event:React.ChangeEvent<HTMLInputElement>)=>{
         if(!store.selectedElement) return;
         if(!event.target) return;
         if(event.target.checked){
-          const textboxbgcolor=document.querySelector('#textboxbgcolor');
-          if(!textboxbgcolor) return;
-          store.setTextBoxBackgroundColor(store.selectedElement,textboxbgcolor.value);
+        if(!reftextboxbgcolor.current) return;
+        store.setTextBoxBackgroundColor(store.selectedElement,reftextboxbgcolor.current.value);
         }
         else{
             store.setTextBoxBackgroundColor(store.selectedElement,undefined)
@@ -25,9 +25,8 @@ export const ObjectBackground = observer(() => {
             
             if(!store.selectedElement) return;
             if(!event.target) return;
-            const textboxbgcolor=document.querySelector("#textboxbgcolor");
-            if(!textboxbgcolor) return;
-            if(!textboxbgcolor.checked) return;
+            if(!reftextboxbgcolor.current) return;
+            if(!reftextboxbgcolor.current.checked) return;
             store.setTextBoxBackgroundColor(store.selectedElement,event.target.value);
         }
         catch(err){
@@ -43,7 +42,7 @@ export const ObjectBackground = observer(() => {
       </section>
    {expand ? <section className={`cursor-pointer px-3 py-2 border-gray-900 bg-[#202020] ${expand ? "border-b-2":"border-none"}`}>
       <form noValidate className='flex flex-row items-center'>
-        <input type='checkbox' onChange={handleCheckBox} id="textboxbgcolor"   className='bg-transparent accent-black size-4 border text-xs'/>
+        <input type='checkbox' onChange={handleCheckBox} ref={reftextboxbgcolor}   className='bg-transparent accent-black size-4 border text-xs'/>
         <div className='flex text-xs  box-border flex-row my-2 h-[28px]'>
           <input type='color' onChange={handleTextBoxBackgroundColor} id='textboxbgfill'  className='bg-transparent border-none mx-2 mt-[2.5px] align-middle w-[24px] h-[24px] ' />
           <label  htmlFor='Background Color' className='pt-[6.4px] items-center align-middle'>Background Color</label>

@@ -103,7 +103,7 @@ export const Transform = observer(() => {
         <div  className='block'>
             <div className='w-12 min-w-12 gap-2  flex flex-col  font-semibold '>
               <label htmlFor='Rotation' className=' text-center w-full text-[11px]'>Rotation</label>
-              <input value={store.selectedElement?.placement.rotation ? store.selectedElement.placement.rotation.toFixed(2) : 0} disabled={lock} onChange={handleChangeRotation} className=" w-full text-white text-center  bg-transparent focus:outline-none text-xs" />
+              <input value={store.selectedElement?.placement.rotation ? store.selectedElement.placement.rotation : 0} disabled={lock} onChange={handleChangeRotation} className=" w-full text-white text-center  bg-transparent focus:outline-none text-xs" />
             </div>
             <div className='w-12 min-w-[48px]'></div>
           </div>

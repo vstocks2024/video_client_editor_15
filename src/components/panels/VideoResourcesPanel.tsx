@@ -18,7 +18,7 @@ const init1=async ()=>
 {
   try{
 store.setVideos([]);
-await axios.get(`https://d18keabtttnxz.cloudfront.net/list_videos`)
+await axios.get(`https://d38u9dccxrq1p2.cloudfront.net/list_videos`)
 .then(async (resolve)=>{
   if(resolve.data.data?.length>0)
   {
@@ -77,7 +77,7 @@ await axios.get(`https://d18keabtttnxz.cloudfront.net/list_videos`)
     console.log(file.name);
     const formData=new FormData();
     formData.append("newvideo",file)
-    await axios.post(`https://d18keabtttnxz.cloudfront.net/new_video`, formData, { headers: {'Content-Type': 'multipart/form-data'}}).then((resolve)=>
+    await axios.post(`https://d38u9dccxrq1p2.cloudfront.net/new_video`, formData, { headers: {'Content-Type': 'multipart/form-data'}}).then((resolve)=>
     {
       console.log(resolve);
       init1();

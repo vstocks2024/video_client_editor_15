@@ -1483,7 +1483,7 @@ shadow:newShadow};
           strokeUniform: undefined,
           strokeLineCap: "butt",
           shadow: new fabric.Shadow({ color: "blue", blur: 0.6, offsetX: 2, offsetY: 2 }),
-          crossOrigin: "anonymous",
+          crossOrigin: "allow-credentials",
         },
         timeFrame: {
           start: 0,
@@ -1675,7 +1675,7 @@ shadow:newShadow};
     let mp4 = this.selectedVideoFormat === 'mp4'
     const canvas = document.getElementById("lower-canvas") as HTMLCanvasElement;
     canvas
-    //canvas.crossOrigin="anonymous";
+    //canvas.crossOrigin="allow-credentials";
     const stream = (canvas as HTMLCanvasElement).captureStream(30);
     const audioElements = this.editorElements.filter(isEditorAudioElement)
     const audioStreams: MediaStream[] = [];
@@ -1861,7 +1861,7 @@ shadow:newShadow};
             strokeUniform:element.placement.strokeUniform,
             strokeLineCap:element.placement.strokeLineCap,
             shadow:element.placement.shadow,
-            crossOrigin:"anonymous",
+            crossOrigin:"allow-credentials",
             // filters
             // @ts-ignore
             customFilter: element.properties.effect.type,
@@ -1912,7 +1912,7 @@ shadow:newShadow};
               strokeUniform:target.strokeUniform ?? placement.strokeUniform,
               strokeLineCap:target.strokeLineCap ?? placement.strokeLineCap,
               shadow:target.shadow ?? placement.shadow,
-              crossOrigin:"anonymous",
+              crossOrigin:"allow-credentials",
               
               
               

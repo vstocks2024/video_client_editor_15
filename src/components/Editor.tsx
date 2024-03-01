@@ -60,9 +60,9 @@ export const Editor = observer(() => {
     });
   }, []);
   return (
-    <React.Fragment>
+    <React.Fragment >
   
-      <main className='min-w-[1349px] max-w-[1349px] min-h-[676px] max-h-[676px] bg-black overflow-hidden'>
+      <main className='min-w-[1349px] max-w-[1349px] min-h-[676px] max-h-[676px] overflow-hidden'>
       <div className="flex flex-col">
       <BackCustomize/>
       <MainPart/>
@@ -75,7 +75,7 @@ export const Editor = observer(() => {
         <TimeLine />
         </div>
       </main>
-      <CanvasFooter/>
+      {/* <CanvasFooter/> */}
     </React.Fragment>
   );
 });

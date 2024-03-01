@@ -92,10 +92,10 @@ await axios.get(`https://d38u9dccxrq1p2.cloudfront.net/list_videos`)
   }
   }
  
- /*useEffect(()=>
+ useEffect(()=>
   {
-    init();
-  },[])*/
+    init1();
+  },[])
 
   return (
     <>
@@ -111,7 +111,7 @@ await axios.get(`https://d38u9dccxrq1p2.cloudfront.net/list_videos`)
       accept="video/mp4,video/x-m4v,video/*"
       className="bg-gray-300 w-auto hover:bg-gray-400 text-gray-800 font-bold text-center mx-2 py-2 px-4 rounded"
       onChange={handleFileChange}/>
-      <button onClick={init1}>init1</button>
+      {/* <button onClick={init1}>init1</button> */}
       
      
   </>);

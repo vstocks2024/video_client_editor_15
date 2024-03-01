@@ -76,10 +76,10 @@ await axios.get(`https://d38u9dccxrq1p2.cloudfront.net/list_images`)
       console.log(reject);
     })
   };
-  /*useEffect(()=>
+  useEffect(()=>
   {
-    init();
-  },[])*/
+    init1();
+  },[])
   return (
     <>
     <div className=" overflow-y-auto">
@@ -94,7 +94,7 @@ await axios.get(`https://d38u9dccxrq1p2.cloudfront.net/list_images`)
         accept="image/*"
         className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold text-center mx-2 py-2 px-4 rounded"
         onChange={handleFileChange}/>
-      <button onClick={init1}>init</button>
+      {/* <button onClick={init1}>init</button> */}
     </>
   );
 });

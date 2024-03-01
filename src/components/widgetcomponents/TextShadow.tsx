@@ -47,15 +47,15 @@ export const TextShadow =  observer(() => {
         <div  className=' flex items-center gap-3'>
           <div className='flex flex-col'>
           <label className='w-12 flex items-center text-center text-[11px] h-[14px] text-[#999999]' htmlFor='Offset X'>Offset X</label>
-          <input ref={reftextshadowoffsetX} value={2}  className='w-12 h-5 focus:outline-none text-sm bg-transparent border-b'/>
+          <input ref={reftextshadowoffsetX}   className='w-12 h-5 focus:outline-none text-sm bg-transparent border-b'/>
           </div>
           <div className='flex flex-col'>
           <label className='w-12 flex items-center text-center text-[11px] h-[14px] text-[#999999]' htmlFor='Offset Y'>Offset Y</label>
-          <input ref={reftextshadowoffsetY} value={2}  className='w-12 h-5 focus:outline-none text-sm bg-transparent border-b'/>
+          <input ref={reftextshadowoffsetY}   className='w-12 h-5 focus:outline-none text-sm bg-transparent border-b'/>
           </div>
           <div className='flex flex-col'>
           <label className='w-12 flex items-center text-center text-[11px] h-[14px] text-[#999999]' htmlFor='Blur'>Blur</label>
-          <input ref={reftextshadowblur} value={0.5}  className='w-12 h-5 focus:outline-none text-sm bg-transparent border-b'/>
+          <input ref={reftextshadowblur}   className='w-12 h-5 focus:outline-none text-sm bg-transparent border-b'/>
           </div>
         </div>
       </form>

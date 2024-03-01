@@ -23,7 +23,7 @@ export const Flip = observer(() => {
     
   return (
     <>
-       <section onClick={()=>setExpand(!expand)} className={`cursor-pointer px-3 py-2  h-6 max-h-6 font-semibold flex flex-row justify-between items-center text-xs bg-[#151515]  border-black ${expand===true ? "border-none":"border-b-2"}`}>
+       <section onClick={()=>setExpand(!expand)} className={`cursor-pointer font-semibold flex flex-row justify-between items-center text-xs bg-[#151515] pl-3 pr-2 border-black ${expand===true ? "border-none":"border-b-2"}`}>
           <h3>Flip</h3>
           <button ><span>{expand ? <MdOutlineExpandLess  size={24}/> :<MdOutlineExpandMore size={24} />}</span></button>
       </section>

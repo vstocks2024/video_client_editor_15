@@ -30,6 +30,7 @@ export const EditorWithStore = () => {
 export const Editor = observer(() => {
   const store = React.useContext(StoreContext);
   document.title="Editor--VSTOCKS";
+  
 
   useEffect(() => {
     const canvas = new fabric.Canvas("lower-canvas", {
@@ -61,7 +62,7 @@ export const Editor = observer(() => {
   return (
     <React.Fragment>
   
-      <main className='min-w-[1349px] max-w-[1349px] min-h-[676px] max-h-[676px] overflow-hidden'>
+      <main className='min-w-[1349px] max-w-[1349px] min-h-[676px] max-h-[676px] bg-black overflow-hidden'>
       <div className="flex flex-col">
       <BackCustomize/>
       <MainPart/>
